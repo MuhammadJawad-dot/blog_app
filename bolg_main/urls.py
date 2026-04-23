@@ -20,11 +20,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 from bolg_main import settings
 from . import views
+from blogs import views as blogview
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('category/', include('blogs.urls')),
         # path('category/<int:category_id>/', blog_views.posts_by_category, name='posts_by_category'),
-    path(<slug)
+    path('blogs/<slug:slug>/',blogview.blogs ,name='blogs'),
+    path('search/', blogview.search, name='search'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

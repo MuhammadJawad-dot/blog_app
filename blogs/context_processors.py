@@ -2,7 +2,11 @@ from .models import Category
 
 def get_categories(request):
     categories = Category.objects.all()
-    return {'categories': categories}
+    keyword = request.GET.get('keyword', '')
+    return {
+        'categories': categories,
+        'keyword': keyword,
+    }
 
 
 

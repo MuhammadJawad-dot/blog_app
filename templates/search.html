@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 blog-main">
+        <h3>Search Results for "{{ keyword }}"</h3>
+        {% if blogs %}
+            {% for blog in blogs %}
+            <div class="blog-post">
+                <h2 class="blog-post-title"><a href="{% url 'blogs' blog.slug %}" class="text-dark">{{ blog.title }}</a></h2>
+                <p class="blog-post-meta">{{ blog.posted_on|date:"F j, Y" }} by <a href="#">{{ blog.author }}</a></p>
+                <p>{{ blog.short_description }}</p>
+                <a href="{% url 'blogs' blog.slug %}">Read more...</a>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>No blogs found matching your search.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
