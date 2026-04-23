@@ -29,4 +29,7 @@ urlpatterns = [
         # path('category/<int:category_id>/', blog_views.posts_by_category, name='posts_by_category'),
     path('blogs/<slug:slug>/',blogview.blogs ,name='blogs'),
     path('search/', blogview.search, name='search'),
+    path('register/', views.register, name='register'),
+    path('login/', views.login, name='login'),
+    path('logout/', views.logout, name='logout'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
